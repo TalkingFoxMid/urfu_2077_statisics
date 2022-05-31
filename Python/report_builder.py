@@ -7,7 +7,6 @@ from statistics_data import StatisticsData
 from table_helper import draw_table
 from variance_collection import VarianceCollection
 
-
 class NormReportOptions:
     def __init__(self, alpha: float, xi_expected: float | None = None, q: float | None = None):
         self.xi_expected = xi_expected

@@ -12,6 +12,7 @@ from variance_collection import VarianceCollection
 def report(collection, stat, name, options):
     builder = ReportBuilder(collection, stat, name, options)
     builder.print_table()
+    builder.print_pirson_table()
     builder.create_hist()
     builder.create_polygones()
     builder.create_hist_and_polygones()
@@ -25,6 +26,7 @@ def main():
         data = json.load(f)
     pairs = data["pairs"]
     n = len(pairs)
+    print(n)
     x_variances, y_variances = list(map(list, map(sorted, zip(*pairs))))
     x_intervals = VarianceCollection(x_variances, IntervalsRange(data["start_x"], max(x_variances), data["step_x"]))
     y_intervals = VarianceCollection(y_variances, IntervalsRange(data["start_y"], max(y_variances), data["step_y"]))
